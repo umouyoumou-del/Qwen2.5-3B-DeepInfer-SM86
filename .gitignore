@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+weights/*.part-*
+weights/*.tar
+*.safetensors
+!model/norm.safetensors
+/server.log
+bench_*.log
