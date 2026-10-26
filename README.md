@@ -37,6 +37,20 @@ engine。
 
 ---
 
+## 本次发布（v0.1.0）
+
+- 发布 Qwen2.5-3B + `maibot-catgirl-v3` 的 DeepInfer SM86 W4A16 权重；
+- 权重作为两个 Release 资产上传，不进入普通 Git 历史；
+- 包含 36 层 W4A16 checkpoint、tied embedding、tokenizer、manifest；
+- 包含构造期 fused qkv / gate-up loader；
+- 包含 W4A16 GEMV、3-bit GEMV、128/256-slot GQA kernel 源码；
+- 包含 OpenAI 兼容 3B 网关、CLI、基准脚本和结果；
+- 融合后 3B 基准：加载 12.299 秒、prefill 0.4551 秒、decode 44.777 tokens/s、一次请求 0.9009 秒。
+
+> 权重约 1.912 GiB；embedding 单文件约 622 MB，因此使用 Release 分片。
+
+---
+
 ## 结果速览
 
 在 RTX 3050 4 GB 上，用 **融合后的 3B W4A16 + 256 GQA + CUDA Graph** 实测：
